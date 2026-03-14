@@ -14,10 +14,10 @@ $result = $conn->query("SELECT * FROM stories ORDER BY created_at DESC");
 <body>
     <header>
         <div class="nav-left">
-            <a href="myjournal-index.php" class="logo">My Journal</a>
+            <a href="myjournal-index.php" class="logo">My ToDo</a>
         </div>
         <div class="nav-right">
-            <a href="myjournal-add.php" class="btn">➕ Add New Story</a>
+            <a href="myjournal-add.php" class="btn">➕ Add New ToDo</a>
         </div>
     </header>
 
