@@ -7,11 +7,16 @@ WORKDIR /var/www/html/
 # Copy all project files to container
 COPY . .
 
-# Enable Apache mod_rewrite if needed
+# Enable Apache mod_rewrite
 RUN a2enmod rewrite
 
-# Install PHP extensions for MySQL & PostgreSQL
-RUN docker-php-ext-install mysqli pdo pdo_pgsql
+# Install dependencies for PostgreSQL and MySQL extensions
+RUN apt-get update && apt-get install -y \
+    libpq-dev \
+    libzip-dev \
+    unzip \
+    && docker-php-ext-install mysqli pdo pdo_pgsql \
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Expose the default port
 EXPOSE 10000
