@@ -10,5 +10,8 @@ COPY . .
 # Enable Apache mod_rewrite if needed
 RUN a2enmod rewrite
 
+# Install PHP extensions for MySQL & PostgreSQL
+RUN docker-php-ext-install mysqli pdo pdo_pgsql
+
 # Expose the default port
 EXPOSE 10000
